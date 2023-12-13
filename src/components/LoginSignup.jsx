@@ -5,12 +5,14 @@ import user_icon from '../assets/images/person.png';
 import email_icon from '../assets/images/email.png';
 import password_icon from '../assets/images/password.png';
 import icon from '../assets/images/twist.png'
+import layer from '../assets/images/layer.png'
 
 
 const LoginSignup = () => {
     const [action,setAction]=useState("Sign Up");
   return (
     <div className="big-container">
+        <img src={layer} alt="" className='layer'/>
         <div className="nav-bar">
             <div className="logo">
                 <img src={icon} alt="" />
@@ -30,6 +32,12 @@ const LoginSignup = () => {
             <div className="text">{action}</div>
             <div className="underline"></div>
         </div>
+        <div className="navigator underline-1">
+            
+            <div className={action==="Login"?"navigator":"navigator line"} onClick={()=>{setAction("Sign Up")}}>Sign Up</div>
+                <div className={action==="Sign Up"?"navigator":"navigator line"} onClick={()=>{setAction("Login")}}>Login</div>
+    
+            </div>
     
         
         <div className="inputs">
@@ -59,8 +67,7 @@ const LoginSignup = () => {
         <div className="forgot-password"><span onClick={()=>{setAction("Sign Up")}}>New user?</span></div>
         }
         <div className="submit-container">
-            <div className={action==="Login"?"submit gray":"submit"} onClick={()=>{setAction("Sign Up")}}>Sign Up</div>
-            <div className={action==="Sign Up"?"submit gray":"submit"} onClick={()=>{setAction("Login")}}>Login</div>
+            <div className='submit' >{action}</div>
         </div>
       
     </div>
